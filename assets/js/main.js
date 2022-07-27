@@ -108,24 +108,27 @@ function cardsRotate() {
 }
 
 function changeTitle() {
+  // select data de la 1ere carte (dernier élément du tableau)
   let currentTitleCard = cards[4].firstElementChild.getAttribute("title");
+  let currentColorCard = cards[4].firstElementChild.getAttribute("code-couleur");
+  let currentColorTypo = cards[4].firstElementChild.getAttribute("font-couleur");
   let title = document.getElementById("projetTitle");
 
-  gsap.timeline().set(title, {opacity: 0, duration: 2});
+  gsap.timeline()
+  .set(".background", {opacity: 0})
+  .set(title, {color: currentColorTypo , opacity: 0, duration: 2});
 
-  gsap.timeline({ onComplete: changeTitleHtml(currentTitleCard) }).to(title, {opacity: 1, duration: 2});
-
-  // document.querySelector('#projetTitle').innerHTML = `
-    // <h1>${currentTitleCard}</h1>
-  // `;
-
-  // gsap.to(title, {opacity: 1, duration: 0.5});
+  gsap.timeline({ onComplete: changeTitleHtml(currentTitleCard) })
+  .set(".background", {backgroundColor: currentColorCard})
+  .to(".background", {opacity: 1, duration: 1})
+  .to(title, {opacity: 1, duration: 2});
 }
 
 function changeTitleHtml(currentTitle) {
   document.querySelector('#projetTitle').innerHTML = `
     <h1>${currentTitle}</h1>
   `;
+
 }
 
 // on Click
