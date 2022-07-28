@@ -112,6 +112,7 @@ function changeTitle() {
   let currentTitleCard = cards[4].firstElementChild.getAttribute("title");
   let currentColorCard = cards[4].firstElementChild.getAttribute("code-couleur");
   let currentColorTypo = cards[4].firstElementChild.getAttribute("font-couleur");
+  let currentNoise = cards[4].firstElementChild.getAttribute("noise");
   let title = document.getElementById("projetTitle");
 
   gsap.timeline()
@@ -120,6 +121,7 @@ function changeTitle() {
 
   gsap.timeline({ onComplete: changeTitleHtml(currentTitleCard) })
   .set(".background", {backgroundColor: currentColorCard})
+  .set(".noise", {backgroundImage: `url(/assets/img/noise-${currentNoise}.png)`})
   .to(".background", {opacity: 1, duration: 1})
   .to(title, {opacity: 1, duration: 2});
 }
