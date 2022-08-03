@@ -144,4 +144,22 @@
       line-height: 1;
     }
   }
+  .buttonProject {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 5vw;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff !important;
+    text-decoration: none;
+    img {
+      position: absolute;
+      width: 6.944vw;
+      z-index: -1;
+      opacity: 0.6;
+    }
+  }
 }
