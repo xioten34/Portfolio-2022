@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
-const pages = resolve(__dirname, './pages');
+const pages = resolve(__dirname);
 
 export default defineConfig({
     build: {
