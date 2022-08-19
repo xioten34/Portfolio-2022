@@ -48,6 +48,7 @@ base('Projects').select({
       type: 'x, y',
       bounds: document.getElementById("cards-container"),
       inertia: true,
+      edgeResistance:.2,
       onDrag: function(e) {
         if (e.x <= prevPos.x * 2.2) {}
         if (e.x >= nextPos.x / 1.1) {}
@@ -110,7 +111,7 @@ base('Projects').select({
       cards.forEach(card => {
         let n = cards.indexOf(card);
         let img = card.firstElementChild;
-        const rotation = [5, 0, -5, 5, 0];
+        const rotation = [-5, 5, 0, -5, 5, 0];
         gsap.timeline()
         .set(card, {zIndex: n})
         .to(img, {rotation: rotation[n], duration: 0.5});
@@ -119,10 +120,10 @@ base('Projects').select({
 
     function changeTitle() {
       // select data de la 1ere carte (dernier élément du tableau)
-      let currentTitleCard = cards[4].firstElementChild.getAttribute("title");
-      let currentColorCard = cards[4].firstElementChild.getAttribute("code-couleur");
-      let currentColorTypo = cards[4].firstElementChild.getAttribute("font-couleur");
-      let currentNoise = cards[4].firstElementChild.getAttribute("noise");
+      let currentTitleCard = cards[5].firstElementChild.getAttribute("title");
+      let currentColorCard = cards[5].firstElementChild.getAttribute("code-couleur");
+      let currentColorTypo = cards[5].firstElementChild.getAttribute("font-couleur");
+      let currentNoise = cards[5].firstElementChild.getAttribute("noise");
       let title = document.getElementById("projetTitle");
 
       gsap.timeline()
